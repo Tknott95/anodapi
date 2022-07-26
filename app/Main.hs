@@ -14,6 +14,7 @@ import Data.Aeson (ToJSON, FromJSON)
 import Control.Monad.IO.Class
 
 import TxModels
+import NodeProcs
 
 import Data.Proxy
 -- import Data.Aeson.Types
@@ -55,10 +56,12 @@ myServer =
     getTxsInline = return mockTxsList
     postTxsInline :: TXInfo -> Handler TXInfo
     postTxsInline _txInfo = do
-       liftIO $ putStrLn "/api/post/tx POST HIT\n"
-       liftIO $ print $ show _txInfo
-       liftIO $ print $ show $ utxoUsing _txInfo
-       return  _txInfo
+      liftIO $ buildTX _txInfo
+      -- liftIO $ buildScKeys $ show $ txOutLoc _txInfo
+      liftIO $ putStrLn "/api/post/tx POST HIT\n"
+      liftIO $ print $ show _txInfo
+      liftIO $ print $ show $ utxoUsing _txInfo
+      return  _txInfo
 
 myAPI :: Proxy TxAPI
 myAPI = Proxy
