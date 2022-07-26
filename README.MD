@@ -1,7 +1,9 @@
 # anodapi
 
 `curl http://localhost:1335/api/txs | jq`
+
 `curl http://localhost:1335/api/txs -X GET | jq ".[0].utxoUsing"`
+
 `curl http://localhost:1335/api/txs -X GET | jq "map(.utxoUsing)"`
 
 
