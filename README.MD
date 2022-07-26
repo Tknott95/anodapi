@@ -1,8 +1,13 @@
 # anodapi
 
-curl http://localhost:1335/api/fighters) | jq
-curl http://localhost:1335/api/fighters -X GET | jq ".[0].name"
-curl http://localhost:1335/api/fighters -X GET | jq "map(.name)"
+curl http://localhost:1335/api/txs | jq
+curl http://localhost:1335/api/fighters -X GET | jq ".[0].utxoUsing"
+curl http://localhost:1335/api/fighters -X GET | jq "map(.utxoUsing)"
 
-curl -X POST -d '{"name": "35345345 63436463443", "weight": 713.5, "wins": 420, "losses": 69 }'  -H 'Content-type: application/json' http://localhost:1335/api/post/fighters | jq
+
+curl \
+  -H "Content-Type: application/json" \
+  -X POST \
+  -d '{"payoutAddr":"addr_tfkkkhfgfkhfk7lkrlqlnwm3xzzk88jc65c50a06ns46p0wjxe6xqkvnrs4f79wjp6tz07wrl2k2nctyqqkhtak","scriptAddr":"addr_test1qkggkgkk7lh0de4uzz03wyelc24kl7x4c5kay2rv4r6lz4ugu5yjaeraawcdgzztg8s6l3x4x","txOutLoc":"txAltTesting01","utxoUsing":"hdddghgdfhgdfhhgfjhgf#0"}' \
+  http://localhost:1335/api/post/tx | jq
 
