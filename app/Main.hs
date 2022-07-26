@@ -56,8 +56,8 @@ myServer =
     getTxsInline = return mockTxsList
     postTxsInline :: TXInfo -> Handler TXInfo
     postTxsInline _txInfo = do
-      liftIO $ buildTX _txInfo
-      -- liftIO $ buildScKeys $ show $ txOutLoc _txInfo
+      -- liftIO $ buildTX _txInfo
+      liftIO $ buildScKeys $ show $ txOutLoc _txInfo
       liftIO $ putStrLn "/api/post/tx POST HIT\n"
       liftIO $ print $ show _txInfo
       liftIO $ print $ show $ utxoUsing _txInfo
