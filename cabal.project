@@ -1,0 +1,7 @@
+packages: *.cabal
+with-compiler: /home/x4/.ghcup/bin/ghc
+
+-- package adanodium
+
+packages:
+  ../adanodium/
