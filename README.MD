@@ -1,4 +1,10 @@
-# anodapi
+# DEPRECATED
+# DEPRECATED
+# DEPRECATED
+# DEPRECATED
+
+
+## anodapi
 
 `curl http://localhost:1335/api/txs | jq`
 
